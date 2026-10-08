@@ -29,11 +29,11 @@ _Avoid_: Client, buyer, account
 - **Only include terms specific to this project's context.** General programming concepts (timeouts, error types, utility patterns) don't belong even if the project uses them extensively. Before adding a term, ask: is this a concept unique to this context, or a general programming concept? Only the former belongs.
 - **Group terms under subheadings** when natural clusters emerge. If all terms belong to a single cohesive area, a flat list is fine.
 
-## Single vs multi-context repos
+## Where it lives
 
-**Single context (most repos):** One `GLOSSARY.md` at the repo root.
+The path comes from the resolve step in [SKILL.md](./SKILL.md). Write this structure into that file.
 
-**Multiple contexts:** A `GLOSSARY-MAP.md` at the repo root lists the contexts, where they live, and how they relate to each other:
+A multi-context map lists each context, the glossary file it lives in, and how the contexts relate:
 
 ```md
 # Glossary Map
@@ -51,10 +51,4 @@ _Avoid_: Client, buyer, account
 - **Ordering ↔ Billing**: Shared types for `CustomerId` and `Money`
 ```
 
-The skill infers which structure applies:
-
-- If `GLOSSARY-MAP.md` exists, read it to find contexts
-- If only a root `GLOSSARY.md` exists, single context
-- If neither exists, create a root `GLOSSARY.md` lazily when the first term is resolved
-
-When multiple contexts exist, infer which one the current topic relates to. If unclear, ask.
+The links in that example are the shape of a map. Use the paths the pointer names. When the topic's context is unclear, ask.

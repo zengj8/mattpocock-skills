@@ -2,11 +2,11 @@
 
 `domain-modeling` builds and sharpens a project's **ubiquitous language** while you are designing. It challenges a term that conflicts with the glossary, asks for a precise word where you used a vague one, and tests a relationship against a concrete scenario until the boundaries are exact.
 
-It is the **active** discipline, not the passive one. Any skill can read `GLOSSARY.md` to borrow its vocabulary. This skill is for when you are *changing* the model, which is why it interrupts you. It writes a term into `GLOSSARY.md` at the moment you settle it, in the middle of the conversation, rather than producing a tidy glossary at the end. A glossary written at the end is a summary of a [session](https://www.aihero.dev/ai-coding-dictionary/session); the inline version is the session's output.
+It is the **active** discipline, not the passive one. Any skill can read `GLOSSARY.md` to borrow its vocabulary. This skill is for when you are *changing* the model, which is why it interrupts you. It writes a term into the glossary file the repo's domain-docs pointer names, at the moment you settle it, in the middle of the conversation, rather than producing a tidy glossary at the end. A glossary written at the end is a summary of a [session](https://www.aihero.dev/ai-coding-dictionary/session); the inline version is the session's output.
 
 ## When to reach for it
 
-Type `/domain-modeling`, or the agent reaches for it automatically when a task fits. In practice, automatic invocation is the weakest part of the skill. When `grill-with-docs` or `wayfinder` say to load it, [models](https://www.aihero.dev/ai-coding-dictionary/model) often load `grilling` and skip this one. If a [grilling](https://www.aihero.dev/ai-coding-dictionary/grilling) session runs and `GLOSSARY.md` is unchanged at the end, that is what happened. Invoke it by name alongside the other skill.
+Type `/domain-modeling`, or the agent reaches for it automatically when a task fits. In practice, automatic invocation is the weakest part of the skill. When `grill-with-docs` or `wayfinder` say to load it, [models](https://www.aihero.dev/ai-coding-dictionary/model) often load `grilling` and skip this one. If a [grilling](https://www.aihero.dev/ai-coding-dictionary/grilling) session runs and the glossary file is unchanged at the end, that is what happened. Invoke it by name alongside the other skill.
 
 Reach for it when the *words* are the problem:
 
@@ -23,7 +23,7 @@ Reach for it when the *words* are the problem:
 
 None up front. The skill writes into two places and creates both lazily:
 
-- **`GLOSSARY.md`** at the repo root. The skill creates it when you settle the first term. In a repo with a `GLOSSARY-MAP.md` at the root, terms go into the per-context `GLOSSARY.md` the map points at instead.
+- **The glossary file the domain-docs pointer names.** Read the Domain docs section of `CLAUDE.md` or `AGENTS.md`, then the doc it points at (usually `docs/agents/domain.md`). Terms go into that file. When the pointer names no file, the skill creates a root `GLOSSARY.md` when you settle the first term. A map names one file per context; terms go into the file for the context you are in.
 - **`docs/adr/`**. The skill creates it with the first ADR that clears the bar.
 
 Nothing needs to exist before you start, and the skill creates nothing in advance.
@@ -75,7 +75,7 @@ No, and there is no plan for a skill that does. A domain language you do not und
 ## It's working if
 
 - It stops you mid-sentence to ask which of two things you meant, instead of picking one and moving on.
-- `GLOSSARY.md` changes **during** the conversation, not in a burst at the end.
+- The glossary file changes **during** the conversation, not in a burst at the end.
 - It refuses to write an ADR for something you could undo tomorrow, and says which of the three tests failed.
 - New entries define what a thing *is* in one or two sentences and name the words you are giving up under `_Avoid_`.
 - It quotes your code back at you when your code and your sentence disagree.
